@@ -1,4 +1,5 @@
 name: Build Fabric Mod
+
 on: [push]
 
 jobs:
@@ -10,11 +11,10 @@ jobs:
         with:
           java-version: 17
           distribution: temurin
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
+      - uses: gradle/actions/setup-gradle@v3
         with:
-          gradle-version: '8.6'
-      - name: Build with Gradle
+          gradle-version: 8.6
+      - name: Build
         run: gradle build
       - name: Upload JAR
         uses: actions/upload-artifact@v4
